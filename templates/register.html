@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>MobileMarket</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}">
+</script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">    
+                    <form class="form-horizontal" action="/register" method="POST" onsubmit="return validate()">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" id="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4" class="col-sm-4 control-label">Confirm password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword4" placeholder="Confirm password" name="cpassword" id="cpassword">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword6" class="col-sm-4 control-label">First name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword6" placeholder="First name" name="firstName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword7" class="col-sm-4 control-label">Last name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword7" placeholder="Last name" name="lastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword8" class="col-sm-4 control-label">Address line 1</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword8" placeholder="Address line 1" name="address1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword9" class="col-sm-4 control-label">Address line 2</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword9" placeholder="Address line 2" name="address2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword10" class="col-sm-4 control-label">Zip code</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword10" placeholder="Zip code" name="zipcode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword11" class="col-sm-4 control-label">City</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword11" placeholder="City" name="city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword12" class="col-sm-4 control-label">State</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword12" placeholder="State" name="state">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword13" class="col-sm-4 control-label">Country</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword13" placeholder="Country" name="country">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword14" class="col-sm-4 control-label">Phone number</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword14" placeholder="Phone number" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8"><p class="error"> {{error}} </p></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button type="submit" class="btn btn-primary">Sign up</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">Already have an account? <a href="/registerationForm">Sign in here</a></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+

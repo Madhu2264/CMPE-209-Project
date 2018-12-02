@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>MobileMarket</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<header>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+</header>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+  				<div class="panel-body">	
+					<form class="form-horizontal" action="/login" method="POST">
+					  	<div class="form-group">
+					    	<label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+					    	<div class="col-sm-8">
+					      		<input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+					    	</div>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+						    <div class="col-sm-8">
+						      	<input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					  		<div class="col-sm-offset-4 col-sm-8"><p class="error"> {{error}} </p></div>
+						</div>
+					  	<div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-8">
+						      	<button type="submit" class="btn btn-primary">Sign in</button>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					  		<div class="col-sm-offset-4 col-sm-8">New user? <a href="/registerationForm">Sign up here</a></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>MobileMarket</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href={{ url_for('static', filename='css/profileHome.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+</head>
+<body>
+<header>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Brand</a>
+			</div>
+		
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					{% if not loggedIn %}
+					<li><a href="/loginForm">Sign in</a></li>
+					{% else %}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello, {{firstName}} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/account/orders">Your orders</a></li>
+							<li><a href="/account/profile">Your profile</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="/logout">Sign out</a></li>
+						</ul>
+					</li>
+					{% endif %}
+					<li>
+						<a href="/cart">CART {{noOfItems}}</a>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+            	<div class="panel-heading">
+					<h3 class="panel-title">Edit profile</h3>
+				</div>
+                <div class="panel-body">    
+                    <form class="form-horizontal" action="/updateProfile" method="POST">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-sm-4 control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputEmail1" placeholder="Email" name="email" value={{profileData[1]}} readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword2" class="col-sm-4 control-label">First name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword2" placeholder="First name" name="firstName" value={{profileData[2]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">Last name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Last name" name="lastName" value={{profileData[3]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4" class="col-sm-4 control-label">Address line 1</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Address line 1" name="address1" value={{profileData[4]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5" class="col-sm-4 control-label">Address line 2</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword5" placeholder="Address line 2" name="address2" value={{profileData[5]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword6" class="col-sm-4 control-label">Zip code</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword6" placeholder="Zip code" name="zipcode" value={{profileData[6]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword7" class="col-sm-4 control-label">City</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="City" name="city" value={{profileData[7]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">State</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword7" placeholder="State" name="state" value={{profileData[8]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword8" class="col-sm-4 control-label">Country</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword8" placeholder="Country" name="country" value={{profileData[9]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword9" class="col-sm-4 control-label">Phone number</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword9" placeholder="Phone number" name="phone" value={{profileData[10]}}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <a href="/account/profile/changePassword">Change password</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
